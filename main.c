@@ -1,26 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define STUDENT 4
+#define ROWS 3
+#define COLS 3
+
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-void square_array(int a[], int size) {
-	int i;
-	
-	for (i=0;i<STUDENT;i++)
-		a[i]=a[i]*a[i];
+void addMatrix(int A[ROWS][COLS], int B[ROWS][COLS], int C[ROWS][COLS]) {
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
 }
-void print_array(int a[], int size) {
-	int i;
-	
-	for (i=0;i<STUDENT;i++)
-		printf("%3d", a[i]);
-	printf("\n");
+
+void printMatrix(int matrix[ROWS][COLS]) {
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
 }
+
 int main(int argc, char *argv[]) {
-	
-	int list[STUDENT] = {1,2,3,4};
-	
-	print_array(list, STUDENT);
-	square_array(list, STUDENT);
-	print_array(list, STUDENT);
-	return 0;
+    int A[ROWS][COLS] = {
+        {2, 3, 0},
+        {8, 9, 1},
+        {7, 0, 5}
+    };
+    int B[ROWS][COLS] = {
+        {1, 0, 0},
+        {0, 1, 0},
+        {0, 0, 1}
+    };
+    int C[ROWS][COLS];
+
+    addMatrix(A, B, C);
+    printMatrix(C);
+
+    return 0;
 }
+
+
