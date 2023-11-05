@@ -5,17 +5,18 @@
 
 int main(int argc, char *argv[]) {
 	
-	int grade[STUDENT];
-	int score[STUDENT];
 	int i;
+	int a[STUDENT] = {1,2,3,4,5};
+	int b[STUDENT] = {1,2,3,4,5};
+	int flag_same=0;
 	
 	for (i=0;i<STUDENT;i++) {
-	
-		grade[i] = rand()%100;
-		score[i] = grade[i];
+		if (a[i]!=b[i]) {
+			printf("array a and b are not the same\n");
+			flag_same=1;
+		}
 	}
-	
-	for (i=0;i<STUDENT;i++)
-		printf("score[%d] = %d\n", i, score[i]);
+	if (flag_same==0) 
+		printf("array a and b are the same\n");
 	return 0;
 }
